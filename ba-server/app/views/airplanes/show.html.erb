@@ -9,6 +9,42 @@
 
   <p><strong>Number of rows: </strong><%= @airplane.rows %></p>
 
-  <div id='seating-blueprint'></div>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <% @airplane.columns.times do |i| %>
+          <th scope="col"><%= @columnsArray[i] %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+    <% @airplane.rows.times do |i| %>
+      <tr>
+       <th scope="row"><%= i+1 %></th>
+       <% @airplane.columns.times do |i| %>
+         <td></td>
+       <% end %>
+     </tr>
+    <% end %>
+    </tbody>
+  </table>
 
-</div>
+
+ <%# <div id='border'>
+    <div id='seating-blueprint'>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</div> %>
