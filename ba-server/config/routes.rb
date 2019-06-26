@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   resources :users, except: [ :index ]
+  resources :airplanes
 
   #airline app user login & logout routes
 
