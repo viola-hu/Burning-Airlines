@@ -46,7 +46,7 @@ render(){
       <h2>Burning Airlines Search Component</h2>
 
       <SearchForm onSearchSubmit={ this.saveSearch }/>
-      <SearchResults />
+      <SearchResults searchResults={ this.state.results }/>
 
 
     </div>
