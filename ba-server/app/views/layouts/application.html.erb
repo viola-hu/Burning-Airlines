@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BaServerrrr</title>
+    <title>Rails Burning Airlines</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
+
+  <nav>
+  <% if @current_user.present?  %>
+    Welcome, <%= @current_user.name %>!
+    <%= link_to 'Logout', login_path, method: 'delete' %>
+    <% else %>
+      <% link_to 'Login', login_path -%>
+    <% end %>
+    </nav>
 
   <body>
     <%= yield %>
