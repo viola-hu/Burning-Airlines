@@ -1,0 +1,20 @@
+#seating-blueprint  {
+  display: inline-grid;
+  background-color: rgb(57, 56, 61);
+  width: 46vw;
+  height: 46vw;
+  /* grid-gap: 0.5vw; */
+  margin: 0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows:  repeat(4, 1fr);
+
+}
+
+#seating-blueprint > div {
+  background-color: white;
+  margin: 2px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}

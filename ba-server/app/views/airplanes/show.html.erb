@@ -1,9 +1,50 @@
-<h2>Boeing <%= @airplane.name %></h2>
+<div>
+  <h2>Boeing <%= @airplane.name %></h2>
 
-<%= link_to "Edit", edit_airplane_path(@airplane.id) %>
-|
-<%= link_to "Delete", airplane_path(@airplane.id), method: 'Delete' %>
+  <%= link_to "Edit", edit_airplane_path(@airplane.id) %>
+  |
+  <%= link_to "Delete", airplane_path(@airplane.id), method: 'Delete' %>
 
-<p><strong>Number of columns: </strong><%= @airplane.columns %></p>
+  <p><strong>Number of columns: </strong><%= @airplane.columns %></p>
 
-<p><strong>Number of rows: </strong><%= @airplane.rows %></p>
+  <p><strong>Number of rows: </strong><%= @airplane.rows %></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <% @airplane.columns.times do |i| %>
+          <th scope="col"><%= @columnsArray[i] %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+    <% @airplane.rows.times do |i| %>
+      <tr>
+       <th scope="row"><%= i+1 %></th>
+       <% @airplane.columns.times do |i| %>
+         <td></td>
+       <% end %>
+     </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+
+ <%# <div id='border'>
+    <div id='seating-blueprint'>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</div> %>

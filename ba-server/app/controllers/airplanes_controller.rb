@@ -32,6 +32,7 @@ class AirplanesController < ApplicationController
 
   def show
     @airplane = Airplane.find params[:id]
+    @columnsArray = ['A', 'B', 'C', 'D', 'E']
 
   end
 

@@ -10,17 +10,17 @@
 <%= form_for @airplane do |f| %>
 
   <%= f.label :name %>
-  <%= f.text_field :name, :attr, placeholder: "placeholder text"%>
+  <%= f.text_field :name, placeholder: "747"%>
 
   <br>
 
-  <%= f.label :rows, 'Number of rows' %>
-  <%= f.text_field :rows %>
+  <%= f.label :rows %>
+  <%= f.select :rows, (1..30).to_a, prompt: 'Select number of rows' %>
 
   <br>
 
-  <%= f.label :columns, 'Number of columns' %>
-  <%= f.text_field :columns %>
+  <%= f.label :columns %>
+  <%= f.select :columns, [['A', 1], ['AB', 2], ['AB C', 3], ['AB CD', 4], ['AB CDE', 5]], prompt: 'Select configuration of each row' %>
 
   <br>
   <br>
@@ -29,3 +29,5 @@
 
 
 <% end %>
+
+  <!-- < % = f.collection_select :airplane_id, Airplane.all, :id, :name, prompt:‘Select plane’ % > -->
