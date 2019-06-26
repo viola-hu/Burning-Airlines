@@ -1,9 +1,14 @@
-<h2>Boeing <%= @airplane.name %></h2>
+<div>
+  <h2>Boeing <%= @airplane.name %></h2>
 
-<%= link_to "Edit", edit_airplane_path(@airplane.id) %>
-|
-<%= link_to "Delete", airplane_path(@airplane.id), method: 'Delete' %>
+  <%= link_to "Edit", edit_airplane_path(@airplane.id) %>
+  |
+  <%= link_to "Delete", airplane_path(@airplane.id), method: 'Delete' %>
 
-<p><strong>Number of columns: </strong><%= @airplane.columns %></p>
+  <p><strong>Number of columns: </strong><%= @airplane.columns %></p>
 
-<p><strong>Number of rows: </strong><%= @airplane.rows %></p>
+  <p><strong>Number of rows: </strong><%= @airplane.rows %></p>
+
+  <div id='seating-blueprint'></div>
+
+</div>
