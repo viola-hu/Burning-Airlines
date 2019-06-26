@@ -9,6 +9,13 @@ const FLIGHT_URL = 'http://localhost:3000/flights'
 
 class Search extends Component {
 
+  constructor(){
+    super();
+    this.state = {
+      results: []
+    };
+  }
+
   // componentDidMount(){
   // this.fetchFlights();
   // }
@@ -18,7 +25,7 @@ class Search extends Component {
   axios.get( `http://localhost:3000/flights/${from}/${to}.json` )
   .then( res => {
     console.log( res );
-    // this.setState({flight})
+    this.setState({ results: res.data })
 
   })
   .catch( console.warn );

@@ -5,6 +5,8 @@ import React, { Component } from 'react';
       return(
         <div>
           <h2>SearchResults</h2>
+
+          
         </div>
       );
     }
