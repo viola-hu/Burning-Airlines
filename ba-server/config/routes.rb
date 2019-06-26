@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
 
-resources :flights
+  resources :flights
+  resources :users, except: [ :index ]
+  resources :airplanes
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
+  #airline app user login & logout routes
+
+  #login form
+  get '/login' => 'session#new'
+  #create a new user session
+  post '/login' => 'session#create'
+  # logout
+  delete '/login' => 'session#destroy'
+
+  end
