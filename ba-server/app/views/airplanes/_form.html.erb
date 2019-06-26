@@ -1,0 +1,31 @@
+<% if flash[:errors].present?  %>
+ <ul>
+   <% flash[:errors].each do |error|  %>
+     <li><%= error %></li>
+   <% end %>
+ </ul>
+
+<% end %>
+
+<%= form_for @airplane do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <br>
+
+  <%= f.label :rows, 'Number of rows' %>
+  <%= f.text_field :rows %>
+
+  <br>
+
+  <%= f.label :columns, 'Number of columns' %>
+  <%= f.text_field :columns %>
+
+  <br>
+  <br>
+
+  <%= f.submit %>
+
+
+<% end %>
