@@ -1,0 +1,50 @@
+<% if flash[:errors].present? %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+    <li> <%= error %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_for @flight do |f|%>
+
+<%= f.label :flight_number, 'Flight Number' %>
+<%= f.text_field :flight_number %>
+
+<br><br>
+
+<%= f.label :date %>
+<%= f.date_field :date %>
+
+<br><br>
+
+<%= f.label :to %>
+<%= f.text_field :to, placeholder:"e.g.SYD" %>
+
+<br><br>
+
+<%= f.label :from %>
+<%= f.text_field :from, placeholder:'e.g.SYD' %>
+
+<br><br>
+
+<%= f.label :airplane_id%>
+<%= f.collection_select :airplane_id, Airplane.all, :id, :name, prompt:'Select plane' %>
+
+<br><br>
+
+<%= f.submit %>
+
+<% end %>
+
+
+<%#
+<!--multipart: true is used, when you have file upload in your form.-->
+
+
+t.integer "flight_number"
+t.date "date"
+t.text "to"
+t.text "from"
+t.integer "airplane_id" %>
