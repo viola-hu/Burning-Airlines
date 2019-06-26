@@ -10,7 +10,7 @@
 <%= form_for @flight do |f|%>
 
 <%= f.label :flight_number, 'Flight Number' %>
-<%= f.text_field :flight_number %>
+<%= f.text_field :flight_number, placeholder:'e.g.789' %>
 
 <br><br>
 
@@ -19,13 +19,13 @@
 
 <br><br>
 
-<%= f.label :to %>
-<%= f.text_field :to, placeholder:"e.g.SYD" %>
+<%= f.label :from %>
+<%= f.text_field :from, placeholder:'e.g.SYD' %>
 
 <br><br>
 
-<%= f.label :from %>
-<%= f.text_field :from, placeholder:'e.g.SYD' %>
+<%= f.label :to %>
+<%= f.text_field :to, placeholder:"e.g.SYD" %>
 
 <br><br>
 
