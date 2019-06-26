@@ -55,4 +55,4 @@ gem 'pry-rails'
 
 gem 'simple_table_for'
 
-gem 'pry-jquery'
+gem 'jquery-rails'
