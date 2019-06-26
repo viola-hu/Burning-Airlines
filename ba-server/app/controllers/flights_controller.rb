@@ -2,10 +2,16 @@ class FlightsController < ApplicationController
   # security check! only admin can touch this controller's actions, def is in the application.html
 
   # before_action :check_if_admin
+  before_action :set_cors_headers
 
 
   def index
     @flights= Flight.all.order(date: :asc)
+
+      respond_to do |format|
+      format.html
+      format.json { render json: @flights }
+    end
   end
 
 
@@ -44,6 +50,16 @@ class FlightsController < ApplicationController
   end
 
 
+
+  def search
+    set_cors_headers
+    current_from = params[:from]
+    current_to = params[:to]
+    @flights = Flight.where from: current_from, to: current_to
+    render json: @flights
+  end
+
+
   def destroy
     Flight.destroy params[:id]
     redirect_to flights_path
@@ -53,6 +69,9 @@ class FlightsController < ApplicationController
 
   private
 
+    def set_cors_headers
+      headers['Access-Control-Allow-Origin'] = '*'
+    end
 
   def params_flight
     params.require(:flight).permit(:flight_number, :date, :to, :from, :airplane_id)

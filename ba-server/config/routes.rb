@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   # logout
   delete '/login' => 'session#destroy'
 
+  get '/flights/:from/:to' => 'flights#search', as: 'flights_results'
+
   end
