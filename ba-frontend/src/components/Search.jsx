@@ -6,7 +6,7 @@ import SearchResults from './SearchResults';
 import SearchForm from './SearchForm';
 import Flight from './Flight';
 
-const FLIGHT_URL = 'http://localhost:3000/flights'
+// const FLIGHT_URL = 'http://localhost:3000/flights'
 
 class Search extends Component {
 
