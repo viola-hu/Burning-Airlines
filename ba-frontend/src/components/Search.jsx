@@ -4,6 +4,7 @@ import axios from 'axios';
 // import { Link } from 'react-router-dom';
 import SearchResults from './SearchResults';
 import SearchForm from './SearchForm';
+import Flight from './Flight';
 
 // const FLIGHT_URL = 'http://localhost:3000/flights'
 
@@ -47,8 +48,7 @@ render(){
 
       <SearchForm onSearchSubmit={ this.saveSearch }/>
       <SearchResults searchResults={ this.state.results }/>
-
-
+      
     </div>
   );
 }
