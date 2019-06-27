@@ -56,7 +56,6 @@ class FlightsController < ApplicationController
     current_from = params[:from]
     current_to = params[:to]
     @flights = Flight.where from: current_from, to: current_to
-
     # include: allows for association for airplane model
     render json: @flights, include: { airplane: {only: :name} }
 
