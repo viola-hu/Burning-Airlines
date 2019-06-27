@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   get '/flights/:from/:to' => 'flights#search', as: 'flights_results'
 
+  get '/flight/:id' => 'flights#select', as: 'flight_select'
+
   end
