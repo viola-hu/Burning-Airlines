@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 
 class SeatAvailability extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      allSeats: this.numSeats(),
-      takenSeats: this.compareSeats()
-    }
-  }
 
-  numSeats(){
+  constructor(props){
+    super(props);
+    this.state = {
+      allSeats: this.numOfSeats(),
+      takenSeats: this.compareSeats()
+
+    }
+  };
+
+  numOfSeats = () => {
     const seatNums = [];
     const columnsArray = ['A', 'B', 'C', 'D', 'E'];
     // replace num with {airplane.columns}
@@ -21,24 +23,73 @@ class SeatAvailability extends Component {
       seatNums.push((i+1)+columnsArray[j]);
       }
     }
+
+    console.log('all seats array:',seatNums);
     return seatNums;
-  }
+  };
+
 
   compareSeats = () => {
-    const allSeats = this.state.allSeats;
-    const reservations = this.props.currentFlight.reservations;
-    console.log(reservations);
-    const arraySeats = reservations.map( a => a.seat);
-    console.log(arraySeats);
+
+    //extract an array from the passed-down reservations' seats
+
+    // fake an array now, but got stuck with any .method... i'm stuck now....
+    // const takenSeats = ['A1','A2','B1','B2'];
+
+
+
+  //   //Hi Amanda,
+  //   // I've tried to test the passed down reservations information.
+  //   // it seems it's working if you only console.log it out,
+  //   // but once using any array method, it's getting the same error!
+  //   // TypeError: Cannot read property e.g.'length' of undefined
+  //   // I've also tried a for loop but it's not working....
+
+
+  //   console.log('what is this?',this.props.currentFlight.reservations); //WORKING
+  //   let reservationsArray = this.props.currentFlight.reservations;
+  //   console.log('reservationsArray',reservationsArray.length); //NOT WORKING
+
+  //
+  //
+  //
+  //
+  //   // // const fullSeats = this.state.allSeats;
+    // let reservationsArray = this.props.currentFlight.reservations; // array of reservation objects
+    // console.log('this is reservations array',reservationsArray);
+    // let takenSeats = reservationsArray.map( reserv => reserv.seat ); // array of taken seats
+  //   // console.log('type of reservationsArray',typeof(reservationsArray));
+  //   // // console.log(reservationsArray.length);
+  //   // // let takenSeats = [];
+  //   // // for (let i = 0; i < reservationsArray.length; i++) {
+  //   //   takenSeats.push(  reservationsArray[i].seat )
+  //   // }
+    // console.log('taken seats:',takenSeats);
+  //   // // return takenSeats
+  //
+  //   // this.setState({
+  //   //   takenSeats: takenSeats,
+  //   // })
   }
 
+
+
   render(){
-    const reservations = (this.props.currentFlight.reservations).map( item => item.seat);
-    console.log(reservations);
+    console.log('this is state.allSeats',this.state.allSeats); //WORKING
+
+
+
+
+
+
+
+
+    // const reservations = (this.props.currentFlight.reservations).map( item => item.seat);
+    // console.log(reservations);
     // let arraySeats = reservations.map( item => item.seat);
-    // const arr = [{a:1},{a:2}];
-    // const a = arr.map(item => item.a);
-    // console.log(a);
+    const arr = [{a:1},{a:2}];
+    const a = arr.map(item => item.a);
+    console.log(a);
     // let arraySeats = reservations.map( a => a.seat);
     // console.log(arraySeats);
 

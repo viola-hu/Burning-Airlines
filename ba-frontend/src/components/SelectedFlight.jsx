@@ -23,9 +23,9 @@ class SelectedFlight extends Component {
   }
 
   fetchFlight(){
-    axios.get(`http://localhost:3000/flight/${this.props.match.params.selectedFlight}`)
+    axios.get(`http://localhost:3000/flight/${this.props.match.params.selectedFlight}.json`)
     .then( res => {
-      console.log( 'test ', res );
+      console.log( 'test fetchFlight ', res );
 
       this.setState({
         flight: res.data
