@@ -4,7 +4,6 @@
   <%= link_to 'Create Flight', new_flight_path %>
 </button>
 
-
 <br><br>
 
 
@@ -16,5 +15,4 @@
   <%= field flight.airplane.rows*flight.airplane.columns-flight.reservations.length %>
   <%= field link_to 'Edit', edit_flight_path(flight.id) %>
   <%= field link_to 'Delete', flight_path(flight.id), method:'DELETE' %>
-
-<% end %>
+  <% end %>
