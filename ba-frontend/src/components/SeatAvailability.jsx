@@ -1,15 +1,30 @@
 import React, { Component } from 'react';
+import SeatPlan from './SeatPlan';
 
 class SeatAvailability extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      allSeats: this.numOfSeats(),
-      takenSeats: this.compareSeats()
+      seat: this.numOfSeats(),
+      availSeats: this.numOfSeats(),
+      takenSeats: ['1A', '3C', '5D'],
 
     }
+
   };
+
+  // componentDidMount(){
+  //
+  //   this.setState({
+  //     seats: this.numOfSeats(),
+  //     availSeats: this.numOfSeats(),
+  //   });
+  //
+  //
+  //
+  // }
+
 
   numOfSeats = () => {
     const seatNums = [];
@@ -24,12 +39,15 @@ class SeatAvailability extends Component {
       }
     }
 
-    console.log('all seats array:',seatNums);
+    console.log('numOfSeats():',seatNums);
     return seatNums;
   };
 
 
+
   compareSeats = () => {
+
+
 
     //extract an array from the passed-down reservations' seats
 
@@ -71,38 +89,57 @@ class SeatAvailability extends Component {
   //   //   takenSeats: takenSeats,
   //   // })
   }
-
+  // takenSeats = (arr) => {
+  //
+  //   this.setState({
+  //       takenSeats: arr,
+  //     })
+  //
+  // }
+//   reserveSeat = () => {
+//     if(this.state.takenSeat.indexof(seat) > -1){
+//       console.log('alreadytaken')
+//     } else {
+//     this.setState({
+//       seat
+//     })
+//   }
+// }
 
 
   render(){
     console.log('this is state.allSeats',this.state.allSeats); //WORKING
+    const reservations = this.props.currentFlight.reservations;
+    console.log('reservations array:', reservations);
 
+    if (Array.isArray(reservations)){
+      console.log(reservations.map( a => a.seat));
+      const clone = [...(reservations.map( a => a.seat))];
+      console.log('clone', clone)
 
-
-
-
-
-
+    }
 
     // const reservations = (this.props.currentFlight.reservations).map( item => item.seat);
     // console.log(reservations);
     // let arraySeats = reservations.map( item => item.seat);
-    const arr = [{a:1},{a:2}];
-    const a = arr.map(item => item.a);
-    console.log(a);
+    // const arr = [{a:1},{a:2}];
+    // const a = arr.map(item => item.a);
+    // console.log(a);
     // let arraySeats = reservations.map( a => a.seat);
     // console.log(arraySeats);
 
     //replace null with {airplane.rows}
     // const rows = Array(10).fill(null);
 
-
     return(
       <div>
-
-
-
-
+        <h2>Reserve your seat</h2>
+        <SeatPlan
+          seat = {this.state.seat}
+          available = {this.state.availSeats}
+          taken = {this.state.takenSeats}
+          onClickSeat = {this.reserveSeat}
+          />
       </div>
     );
   }
