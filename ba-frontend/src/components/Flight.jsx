@@ -1,26 +1,18 @@
 import React, { Component } from 'react';
 
 
-class Flight extends Component {
+const Flight = function( props ) {
 
-  constructor(){
-    super();
-    this.state = {
-      fight: ''
-    }
-  }
+  // let day = props.currentFlight.date
+  // let date = day.split('/').reverse().join('/')
 
-  render(){
-    return(
-      <div>
-        <h2>Burning Airlines Book a Flight Component</h2>
+  return(
+    <div>
 
+      <p><strong>DATE: </strong>{props.currentFlight.date}<strong>FLIGHT NUMBER: </strong>{props.currentFlight.flight_number} <strong>ROUTE: </strong> {props.currentFlight.from} > {props.currentFlight.to}</p>
 
-      </div>
-    );
-  }
-
-
+    </div>
+  );
 }
 
 export default Flight;

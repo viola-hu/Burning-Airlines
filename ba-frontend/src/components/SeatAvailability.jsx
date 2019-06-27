@@ -4,7 +4,7 @@ class SeatAvailability extends Component {
   render(){
     return(
       <div>
-        hello world
+        seat availability component
       </div>
     );
   }
