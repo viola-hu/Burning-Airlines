@@ -15,10 +15,10 @@ class SelectedFlight extends Component {
   componentDidMount(){
     this.fetchFlight();
 
-
-    window.setInterval(() =>{
-      this.fetchFlight();
-    }, 1000);
+    //
+    // window.setInterval(() =>{
+    //   this.fetchFlight();
+    // }, 1000);
 
   }
 
