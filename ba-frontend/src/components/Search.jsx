@@ -5,7 +5,7 @@ import axios from 'axios';
 import SearchResults from './SearchResults';
 import SearchForm from './SearchForm';
 
-const FLIGHT_URL = 'http://localhost:3000/flights'
+// const FLIGHT_URL = 'http://localhost:3000/flights'
 
 class Search extends Component {
 

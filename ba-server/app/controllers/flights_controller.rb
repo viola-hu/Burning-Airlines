@@ -56,7 +56,10 @@ class FlightsController < ApplicationController
     current_from = params[:from]
     current_to = params[:to]
     @flights = Flight.where from: current_from, to: current_to
-    render json: @flights
+
+    # include: allows for association for airplane model
+    render json: @flights, include: { airplane: {only: :name} }
+
   end
 
 
@@ -66,12 +69,12 @@ class FlightsController < ApplicationController
   end
 
 
-
   private
 
-    def set_cors_headers
+  def set_cors_headers
       headers['Access-Control-Allow-Origin'] = '*'
-    end
+  end
+
 
   def params_flight
     params.require(:flight).permit(:flight_number, :date, :to, :from, :airplane_id)
