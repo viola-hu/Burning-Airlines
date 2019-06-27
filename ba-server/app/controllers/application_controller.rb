@@ -21,6 +21,12 @@ class ApplicationController < ActionController::Base
       end
 
     end
+    
+    # def check_if_admin
+    #   unless @current_user.present? && @current_user.is_admin === true
+    #     flash[:error] = "You are not authorized to view that page."
+    #   end
+    # end
 
 
 
