@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 
-  class SearchResults extends Component {
-    render() {
-      console.log('hi', this.props.searchResults);
-      return(
-        <div>
-          <h2>SearchResults</h2>
-          <table>
-            <tr>
-              <th>DATE</th>
-              <th>FLIGHT</th>
-              <th>FROM>TO</th>
-              <th>PLANE</th>
+class SearchResults extends Component {
+  render() {
+    console.log('hi', this.props.searchResults);
+    return(
+      <div>
+        <h2>SearchResults</h2>
+        <table>
+          <tr>
+            <th>DATE</th>
+            <th>FLIGHT</th>
+            <th>FROM>TO</th>
+            <th>PLANE</th>
 
-            </tr>
+          </tr>
 
           {
-                this.props.searchResults.map( flight =>
+            this.props.searchResults.map( flight =>
               <tr>
                 <td>{flight.date}</td>
                 <td>{flight.flight_number}</td>
