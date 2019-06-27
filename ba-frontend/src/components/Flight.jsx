@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+
 class Flight extends Component {
 
   constructor(){
