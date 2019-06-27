@@ -64,7 +64,7 @@ class FlightsController < ApplicationController
 
   def select
     @flight = Flight.find params[:id]
-    render json: @flight, include: :reservations
+    render json: @flight, include: [:reservations , :airplane]
   end
 
 
