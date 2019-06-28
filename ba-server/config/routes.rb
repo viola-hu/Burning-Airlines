@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :reservations
   resources :flights
   resources :users, except: [ :index ]
   resources :airplanes
@@ -17,4 +18,6 @@ Rails.application.routes.draw do
 
   get '/flight/:id' => 'flights#select', as: 'flight_select'
 
-  end
+  get '/reservation/:flight_id/:user_id/:seat' => 'reservations#create', as: 'flight_reservation'
+
+end
