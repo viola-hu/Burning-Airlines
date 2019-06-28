@@ -17,6 +17,7 @@ class SeatPlan extends Component {
         </div>
       )
     }
+    console.log('occupied seats',this.props.taken); // correct!
 
     return(
       <div className="container">

@@ -37,7 +37,7 @@ class SeatAvailability extends Component {
     // replace num with {airplane.columns}
     // const columns = this.props.currentFlight.airplane.columns;
     const columns = 3;
-    const rows = 10;
+    const rows = 30;
 
     for (let i = 0; i < rows; i++) {
       for (let j = 0; j < columns; j++) {
