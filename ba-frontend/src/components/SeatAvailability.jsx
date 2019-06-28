@@ -8,28 +8,34 @@ class SeatAvailability extends Component {
     this.state = {
       seat: this.numOfSeats(),
       availSeats: this.numOfSeats(),
-      takenSeats: ['1A', '3C', '5D'],
+      takenSeats: ['1A', '3C', '5A'],
 
     }
 
   };
 
-  // componentDidMount(){
-  //
-  //   this.setState({
-  //     seats: this.numOfSeats(),
-  //     availSeats: this.numOfSeats(),
-  //   });
-  //
-  //
-  //
-  // }
+  componentDidMount(){
+    const forDeletion = this.state.takenSeats
+
+    const arr = this.state.availSeats
+
+    const initAvailSeats = arr.filter(item => !forDeletion.includes(item))
+
+    console.log(arr)
+
+    this.setState({
+      availSeats: initAvailSeats,
+    });
+
+
+  }
 
 
   numOfSeats = () => {
     const seatNums = [];
     const columnsArray = ['A', 'B', 'C', 'D', 'E'];
     // replace num with {airplane.columns}
+    // const columns = this.props.currentFlight.airplane.columns;
     const columns = 3;
     const rows = 10;
 
@@ -46,6 +52,8 @@ class SeatAvailability extends Component {
 
 
   compareSeats = () => {
+
+
 
 
 
@@ -93,18 +101,19 @@ class SeatAvailability extends Component {
   //
   //   this.setState({
   //       takenSeats: arr,
-  //     })
   //
-  // }
-//   reserveSeat = () => {
-//     if(this.state.takenSeat.indexof(seat) > -1){
-//       console.log('alreadytaken')
-//     } else {
-//     this.setState({
-//       seat
-//     })
-//   }
-// }
+  //
+//   // }
+  reserveSeat = (seat) => {
+    if(this.state.takenSeat.indexof(seat) > -1){
+      console.log('already taken')
+    } else {
+    this.setState({
+      availState: this.state.takenSeat.concat(seat),
+      takenState: this.state.availSeat.filter( x => x != seat),
+    })
+  }
+}
 
 
   render(){
@@ -112,12 +121,27 @@ class SeatAvailability extends Component {
     const reservations = this.props.currentFlight.reservations;
     console.log('reservations array:', reservations);
 
+    let takenSeats = [];
     if (Array.isArray(reservations)){
       console.log(reservations.map( a => a.seat));
-      const clone = [...(reservations.map( a => a.seat))];
-      console.log('clone', clone)
-
+      takenSeats = reservations.map( a => a.seat);
+      console.log('takenSeats', takenSeats)
     }
+
+    // const array = this.state.availSeats
+    // const index = this.takenSeats[0]
+    // if (index > -1) {
+    //   array.splice(index, 1);
+    // }
+    // console.log(array);
+
+
+
+
+
+
+    // const cols = this.props.currentFlight.airplane.columns;
+    // console.log('airplane', cols);
 
     // const reservations = (this.props.currentFlight.reservations).map( item => item.seat);
     // console.log(reservations);
@@ -137,8 +161,9 @@ class SeatAvailability extends Component {
         <SeatPlan
           seat = {this.state.seat}
           available = {this.state.availSeats}
-          taken = {this.state.takenSeats}
+          taken = {takenSeats}
           onClickSeat = {this.reserveSeat}
+
           />
       </div>
     );
