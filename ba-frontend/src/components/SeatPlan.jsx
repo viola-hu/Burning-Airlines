@@ -28,11 +28,15 @@ class SeatPlan extends Component {
             {this.props.seat.map(seat =>
               <td
               key={seat}
-              onClick={ this.onClickSeat }
+              onClick={ ()=>this.onClickSeat(seat) }
               >
-
-                {this.props.taken.indexOf(seat) > -1 ? 'X':'avail'}
-
+                {
+                this.props.taken.length>0
+                ?
+                this.props.taken.includes(seat)? 'X':'avail'
+                :
+                'Loading'
+                }
               </td>
             )}
             </tr>

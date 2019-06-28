@@ -105,7 +105,11 @@ class SeatAvailability extends Component {
   //
 //   // }
   reserveSeat = (seat) => {
-    if(this.state.takenSeat.indexof(seat) > -1){
+    if(!seat){
+      return;
+    }
+    console.log('clicked this seat',seat);
+    if(this.state.takenSeat.indexOf(seat) > -1){
       console.log('already taken')
     } else {
     this.setState({
