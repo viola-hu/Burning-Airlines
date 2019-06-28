@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 
 class SeatPlan extends Component {
 
-  onClickSeat(seat){
-    this.props.onClickSeat(seat);
+  onClickSeat = (seat) => {
+    if (this.props.onClickSeat) {
+      this.props.onClickSeat(seat);
+    }
   }
 
   render(){
@@ -26,7 +28,7 @@ class SeatPlan extends Component {
             {this.props.seat.map(seat =>
               <td
               key={seat}
-              onClick={ event => this.onClickSeat(seat)}
+              onClick={ this.onClickSeat }
               >
 
                 {this.props.taken.indexOf(seat) > -1 ? 'X':'avail'}
